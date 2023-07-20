@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan's Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .flexbox {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .wrapper {
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border: solid 2px white;
+            border-radius: 0.8rem;
+        }
+
+        .calbox {
+            justify-content: center;
+            align-items: center;
+            display: block;
+            background-color: rgb(124, 167, 237);
+            padding: 0.8rem;
+            border: solid 4px black;
+            border-radius: 0.8rem;
+        }
+
+        .displayside {
+            flex-direction: column;
+            padding: 0.65rem;
+            border: solid 3px black;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: inset -1px -1px 3px black, inset 1px 1px 3px black, 1px 1px 5px rgba(0, 0, 0, 0.452);
+        }
+
+        .displaybox {
+            justify-content: center;
+            align-items: center;
+            padding: 0.25rem;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .displaybox input {
+            width: 100%;
+            height: 5.5rem;
+            border: solid 2px black;
+            box-shadow: inset 1px 1px 2px black;
+            border-radius: 5px;
+            font-size: 2rem;
+            padding: 8px;
+            outline: none;
+        }
+
+        .displaybox input::placeholder {
+            color: rgb(141, 141, 141);
+        }
+        .namebox{
+            justify-content: flex-start;
+            align-items: center;
+            color: #AE5700;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 0rem .5rem;
+            font-family:cursive;
+            text-shadow: 1px 1px 3px rgb(224, 117, 117);
+        }
+        .buttonside {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            border: 3px solid black;
+            border-radius: 5px;
+            padding: 0.5rem;
+            background-color: white;
+            box-shadow: inset -1px -1px 3px black, inset 1px 1px 3px black, 1px 1px 5px rgba(0, 0, 0, 0.452);
+        }
+
+        .row {
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            height: 3.75rem;
+            width: 3.75rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            /* border: 1px solid rgb(0, 42, 255);
+            background-color: rgba(14, 93, 154, 0.889);
+            box-shadow: 2px 3px 3px rgb(5, 5, 7), inset 1px 1px 5px white; */
+            color: #181818;
+            text-shadow: 1px 1px 0px #FFF;
+            background-color: #EBEBEB;
+            border-top: 2px solid #FFF;
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #C1C1C1;
+            border-left: 2px solid #C1C1C1;
+            border-radius: 4px;
+            box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #DCDCDC;
+            cursor: pointer;
+        }
+
+        .btn:active {
+            background-color: #FFBA75;
+            box-shadow: 0px 0px 2px #FFBA75, inset 0px -20px 1px #FF8000;
+            border-top: 2px solid #FFF;
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #AE5700;
+            border-left: 2px solid #AE5700;
+
+        }
+
+        @media (max-width: 420px) {
+            html {
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 320px) {
+            html {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container flexbox">
+        <div class="wrapper flexbox">
+            <form action="" name="Calculator">
+                <div class="calbox flexbox">
+                    <div class="displayside flexbox">
+                        <div class="inputbox flexbox displaybox">
+                            <input type="text" name="input" id="inputbox">
+                        </div>
+                        <div class="namebox flexbox displaybox">
+                            Karan's Calculator
+                        </div>
+                    </div>
+                    <div class="buttonside flexbox">
+                        <div class="row flexbox">
+                            <div class="btn" id="btn7">7</div>
+                            <div class="btn" id="btn8">8</div>
+                            <div class="btn" id="btn9">9</div>
+                            <div class="btn" id="btndd">÷</div>
+                            <div class="btn" id="btnrt">√</div>
+                        </div>
+                        <div class="row flexbox">
+                            <div class="btn" id="btn4">4</div>
+                            <div class="btn" id="btn5">5</div>
+                            <div class="btn" id="btn6">6</div>
+                            <div class="btn" id="btnmy">×</div>
+                            <div class="btn" id="btnpe">%</div>
+                        </div>
+                        <div class="row flexbox">
+                            <div class="btn" id="btn1">1</div>
+                            <div class="btn" id="btn2">2</div>
+                            <div class="btn" id="btn3">3</div>
+                            <div class="btn" id="btnps">+</div>
+                            <div class="btn" id="btnms">-</div>
+                        </div>
+                        <div class="row flexbox">
+                            <div class="btn" id="btnbk">←</div>
+                            <div class="btn" id="btn0">0</div>
+                            <div class="btn" id="btnpt">.</div>
+                            <div class="btn" id="btneql">=</div>
+                            <div class="btn" id="btnc">C</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let beat = new Audio('clicknew.wav');
+        let btnclick = document.getElementsByClassName("btn");
+
+        // Loop through the elements and add the event listener to each button
+        for (let i = 0; i < btnclick.length; i++) {
+            btnclick[i].addEventListener("click", playsoundx);
+        }
+
+        function playsoundx() {
+            beat.play();
+        }
+        //jsbfkjdshfkjdshfkjshdkfjkjsdkjfskdjfsjkdfskdjfskjfk
+        const str = Calculator.input.value;
+        const hasAsterisk = str.includes("*");
+        // if (hasAsterisk) {
+        //     Calculator.input.value += '/100';
+        // } else {
+        //     Calculator.input.value += '*100';
+        // }
+
+
+        let input = document.getElementById("inputbox");
+        let btn7 = document.getElementById("btn7")
+        btn7.addEventListener("click", show7)
+        function show7() {
+            Calculator.input.value += 7;
+        }
+        let btn8 = document.getElementById("btn8")
+        btn8.addEventListener("click", show8)
+        function show8() {
+            Calculator.input.value += 8;
+        }
+        let btn9 = document.getElementById("btn9")
+        btn9.addEventListener("click", show9)
+        function show9() {
+            Calculator.input.value += 9;
+        }
+        let btndd = document.getElementById("btndd")
+        btndd.addEventListener("click", showdd)
+        function showdd() {
+            Calculator.input.value += '/';
+        }
+        let btnrt = document.getElementById("btnrt")
+        btnrt.addEventListener("click", showrt)
+        function showrt() {
+            Calculator.input.value = Math.sqrt(Calculator.input.value);
+        }
+        let btn4 = document.getElementById("btn4")
+        btn4.addEventListener("click", show4)
+        function show4() {
+            Calculator.input.value += 4;
+        }
+        let btn5 = document.getElementById("btn5")
+        btn5.addEventListener("click", show5)
+        function show5() {
+            Calculator.input.value += 5;
+        }
+        let btn6 = document.getElementById("btn6")
+        btn6.addEventListener("click", show6)
+        function show6() {
+            Calculator.input.value += 6;
+        }
+        let btnmy = document.getElementById("btnmy")
+        btnmy.addEventListener("click", showmy)
+        function showmy() {
+            Calculator.input.value += '*';
+        }
+        let btnpe = document.getElementById("btnpe")
+        btnpe.addEventListener("click", showpe)
+        function showpe() {
+            const str = Calculator.input.value;
+            const hasAsterisk = str.includes("*");
+            if (hasAsterisk) {
+                Calculator.input.value += '/100';
+            } else {
+                Calculator.input.value += '*100';
+            }
+        }
+        let btn1 = document.getElementById("btn1")
+        let one = document.getElementById("btn1").innerText
+        btn1.addEventListener("click", show1)
+        function show1() {
+            Calculator.input.value += one;
+        }
+        let btn2 = document.getElementById("btn2")
+        let two = document.getElementById("btn2").innerText
+        btn2.addEventListener("click", show2)
+        function show2() {
+            Calculator.input.value += two;
+        }
+        let btn3 = document.getElementById("btn3")
+        let te = document.getElementById("btn3").innerText
+        btn3.addEventListener("click", show3)
+        function show3() {
+            Calculator.input.value += te;
+        }
+        let btnps = document.getElementById("btnps")
+        let ps = document.getElementById("btnps").innerText
+        btnps.addEventListener("click", showps)
+        function showps() {
+            Calculator.input.value += ps;
+        }
+        let btnms = document.getElementById("btnms")
+        let ms = document.getElementById("btnms").innerText
+        btnms.addEventListener("click", showms)
+        function showms() {
+            Calculator.input.value += ms;
+        }
+        let btnbk = document.getElementById("btnbk")
+        btnbk.addEventListener("click", showbk)
+        function showbk() {
+            // Get the current value of the input field
+            let currentValue = Calculator.input.value;
+
+            // Check if there is any text to remove (not empty)
+            if (currentValue.length > 0) {
+                // Remove the last character from the input field
+                currentValue = currentValue.slice(0, -1);
+
+                // Update the input field with the new value
+                Calculator.input.value = currentValue;
+            }
+        }
+        let btn0 = document.getElementById("btn0")
+        let zo = document.getElementById("btn0").innerText
+        btn0.addEventListener("click", show0)
+        function show0() {
+            Calculator.input.value += zo;
+        }
+        let btnpt = document.getElementById("btnpt")
+        let pt = document.getElementById("btnpt").innerText
+        btnpt.addEventListener("click", showpt)
+        function showpt() {
+            Calculator.input.value += pt;
+        }
+        let btnc = document.getElementById("btnc")
+        btnc.addEventListener("click", clr)
+        function clr() {
+            input.value = '';
+        }
+        let btneql = document.getElementById("btneql")
+        btneql.addEventListener("click", cal)
+        let output = document.getElementById("outputbox")
+        function cal() {
+            Calculator.input.value = eval(Calculator.input.value);
+        }
+
+    </script>
+</body>
+
+</html>
